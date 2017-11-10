@@ -655,7 +655,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _betterScroll = __webpack_require__(11);
+var _betterScroll = __webpack_require__(9);
 
 var _betterScroll2 = _interopRequireDefault(_betterScroll);
 
@@ -890,10 +890,21 @@ exports.default = {
 			pickerSelectedText: []
 		};
 	},
-	mounted: function mounted() {},
+	mounted: function mounted() {
+		var _this = this;
+
+		this.$nextTick(function () {
+			if (!_this.pickerSelectedIndex.length) {
+				_this.pickerSelectedIndex = [];
+				for (var i = 0; i < _this.pickerData.length; i++) {
+					_this.pickerSelectedIndex[i] = 0;
+				}
+			}
+		});
+	},
 	methods: {
 		show: function show() {
-			var _this = this;
+			var _this2 = this;
 
 			if (this.state === STATE_SHOW) {
 				return;
@@ -903,16 +914,24 @@ exports.default = {
 
 			if (!this.wheels) {
 				this.$nextTick(function () {
-					_this.wheels = [];
-					var wheelWrapper = _this.$refs.wheelWrapper;
-					for (var i = 0; i < _this.pickerData.length; i++) {
-						_this._createWheel(wheelWrapper, i);
+					_this2.wheels = [];
+					var wheelWrapper = _this2.$refs.wheelWrapper;
+					for (var i = 0; i < _this2.pickerData.length; i++) {
+						_this2._createWheel(wheelWrapper, i);
 					}
 				});
+			} else {
+				for (var i = 0; i < this.pickerData.length; i++) {
+					this.wheels[i].enable();
+					this.wheels[i].wheelTo(this.pickerSelectedIndex[i]);
+				}
 			}
 		},
 		hide: function hide() {
 			this.state = STATE_HIDE;
+			for (var i = 0; i < this.pickerData.length; i++) {
+				this.wheels[i].disable();
+			}
 		},
 		cancel: function cancel() {
 			this.hide();
@@ -933,125 +952,23 @@ exports.default = {
 			} else {
 				this.wheels[i].refresh();
 			}
+
 			return this.wheels[i];
+		},
+		refresh: function refresh() {
+			var _this3 = this;
+
+			setTimeout(function () {
+				_this3.wheels.forEach(function (wheel, index) {
+					wheel.refresh();
+				});
+			}, 200);
 		}
 	}
 };
 
 /***/ }),
-/* 9 */,
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("transition", { attrs: { name: "picker-fade" } }, [
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.state === 1,
-            expression: "state===1"
-          }
-        ],
-        staticClass: "picker",
-        on: {
-          touchmove: function($event) {
-            $event.preventDefault()
-          },
-          click: _vm.cancel
-        }
-      },
-      [
-        _c("transition", { attrs: { name: "picker-move" } }, [
-          _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.state === 1,
-                  expression: "state===1"
-                }
-              ],
-              staticClass: "picker--panel",
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "picker--choose border-bottom-1px" }, [
-                _c(
-                  "label",
-                  { staticClass: "cancel", on: { click: _vm.cancel } },
-                  [_vm._v(_vm._s(_vm.cancelTxt))]
-                ),
-                _vm._v(" "),
-                _c("h4", [_vm._v(_vm._s(_vm.title))]),
-                _vm._v(" "),
-                _c("label", { staticClass: "confirm" }, [
-                  _vm._v(_vm._s(_vm.confirmTxt))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "picker--content" }, [
-                _c("div", { staticClass: "mask mask--top border-bottom-1px" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "mask mask--bottom border-top-1px" }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { ref: "wheelWrapper", staticClass: "wheel--wrapper" },
-                  _vm._l(_vm.pickerData, function(data) {
-                    return _c("div", { staticClass: "wheel" }, [
-                      _c(
-                        "ul",
-                        { staticClass: "wheel-scroll" },
-                        _vm._l(data, function(item) {
-                          return _c(
-                            "li",
-                            {
-                              staticClass: "wheel-item",
-                              attrs: { "data-item": JSON.stringify(item) }
-                            },
-                            [_vm._v(_vm._s(item.text))]
-                          )
-                        })
-                      )
-                    ])
-                  })
-                )
-              ])
-            ]
-          )
-        ])
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-41037e3b", esExports)
-  }
-}
-
-/***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -2941,6 +2858,117 @@ return BScroll;
 
 })));
 
+
+/***/ }),
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("transition", { attrs: { name: "picker-fade" } }, [
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.state === 1,
+            expression: "state===1"
+          }
+        ],
+        staticClass: "picker",
+        on: {
+          touchmove: function($event) {
+            $event.preventDefault()
+          },
+          click: _vm.cancel
+        }
+      },
+      [
+        _c("transition", { attrs: { name: "picker-move" } }, [
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.state === 1,
+                  expression: "state===1"
+                }
+              ],
+              staticClass: "picker--panel",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "picker--choose border-bottom-1px" }, [
+                _c(
+                  "label",
+                  { staticClass: "cancel", on: { click: _vm.cancel } },
+                  [_vm._v(_vm._s(_vm.cancelTxt))]
+                ),
+                _vm._v(" "),
+                _c("h4", [_vm._v(_vm._s(_vm.title))]),
+                _vm._v(" "),
+                _c("label", { staticClass: "confirm" }, [
+                  _vm._v(_vm._s(_vm.confirmTxt))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "picker--content" }, [
+                _c("div", { staticClass: "mask mask--top border-bottom-1px" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "mask mask--bottom border-top-1px" }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { ref: "wheelWrapper", staticClass: "wheel--wrapper" },
+                  _vm._l(_vm.pickerData, function(data) {
+                    return _c("div", { staticClass: "wheel" }, [
+                      _c(
+                        "ul",
+                        { staticClass: "wheel-scroll" },
+                        _vm._l(data, function(item) {
+                          return _c(
+                            "li",
+                            {
+                              staticClass: "wheel-item",
+                              attrs: { "data-item": JSON.stringify(item) }
+                            },
+                            [_vm._v(_vm._s(item.text))]
+                          )
+                        })
+                      )
+                    ])
+                  })
+                )
+              ])
+            ]
+          )
+        ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-41037e3b", esExports)
+  }
+}
 
 /***/ })
 /******/ ]);

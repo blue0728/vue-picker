@@ -232,7 +232,14 @@
 			}
 		},
 		mounted: function(){
-
+			this.$nextTick(() => {
+				if (!this.pickerSelectedIndex.length) {
+			        this.pickerSelectedIndex = []
+			        for (let i = 0; i < this.pickerData.length; i++) {
+			          	this.pickerSelectedIndex[i] = 0
+			        }
+			     }
+			})
 		},
 		methods: {
 			show: function(){
@@ -250,12 +257,19 @@
 							this._createWheel(wheelWrapper, i)
 						}
 					})
-
+				}else{
+					for(let i = 0; i < this.pickerData.length; i++){
+						this.wheels[i].enable()
+            			this.wheels[i].wheelTo(this.pickerSelectedIndex[i])
+					}
 				}
 				
 			},
 			hide: function(){
-				this.state = STATE_HIDE
+				this.state = STATE_HIDE;
+				for (let i = 0; i < this.pickerData.length; i++) {
+		          	this.wheels[i].disable()
+		        }
 			},
 			cancel: function(){
 				this.hide()
@@ -276,8 +290,16 @@
 		        } else {
 		          	this.wheels[i].refresh()
 		        }
+		        
 		        return this.wheels[i]
-			}
+			},
+			refresh() {
+		        setTimeout(() => {
+		          	this.wheels.forEach((wheel, index) => {
+		            	wheel.refresh()
+		          	})
+		        }, 200)
+		    },
 		}
 	}
 </script>
