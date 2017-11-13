@@ -120,12 +120,12 @@
 
 	@m top{
 		top: 0;
-    	background: linear-gradient(180deg, rgba(255,255,255,.4), rgba(255,255,255,.8));
+    	background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.5));
 	}
 
 	@m bottom{
     	bottom: 0;
-    	background: linear-gradient(0deg, rgba(255,255,255,.4), rgba(255,255,255,.8));
+    	background: linear-gradient(0deg, rgba(255,255,255,.9), rgba(255,255,255,.5));
 	}
 }
 
@@ -167,7 +167,7 @@
 					<div class="picker--choose border-bottom-1px">
 						<label class="cancel" @click="cancel">{{cancelTxt}}</label>
 						<h4>{{title}}</h4>
-						<label class="confirm">{{confirmTxt}}</label>
+						<label class="confirm" @click="confirm">{{confirmTxt}}</label>
 					</div>
 					<div class="picker--content">
 						<div class="mask mask--top border-bottom-1px"></div>	
@@ -193,6 +193,10 @@
   	const STATE_SHOW = 1
 
   	const COMPONENT_NAME = 'vue-picker'	
+  	const EVENT_SELECT = 'select'
+  	const EVENT_CANCEL = 'cancel'
+  	const EVENT_SHOW = 'show'
+  	const EVENT_CHANGE = 'change'
 
 	export default{
 		name: COMPONENT_NAME,
@@ -228,17 +232,18 @@
 		        pickerData: this.data.slice(),
 		        pickerSelectedIndex: this.selectedIndex,
 		        pickerSelectedVal: [],
-		        pickerSelectedText: []
+		        pickerSelectedText: [],
+		        pickerSelectedItem: []
 			}
 		},
 		mounted: function(){
 			this.$nextTick(() => {
 				if (!this.pickerSelectedIndex.length) {
-			        this.pickerSelectedIndex = []
-			        for (let i = 0; i < this.pickerData.length; i++) {
-			          	this.pickerSelectedIndex[i] = 0
-			        }
-			     }
+			        this.pickerSelectedIndex = [];
+			        this.pickerData.forEach((item, index) => {
+						this.pickerSelectedIndex[index] = 0
+					})
+			    }
 			})
 		},
 		methods: {
@@ -253,44 +258,65 @@
 					this.$nextTick(() => {
 						this.wheels = [];
 						let wheelWrapper = this.$refs.wheelWrapper;
-						for(let i = 0; i < this.pickerData.length; i++){
-							this._createWheel(wheelWrapper, i)
-						}
+						this.pickerData.forEach((item, index) => {
+							this._createWheel(wheelWrapper, index)
+						})
 					})
 				}else{
-					for(let i = 0; i < this.pickerData.length; i++){
-						this.wheels[i].enable()
-            			this.wheels[i].wheelTo(this.pickerSelectedIndex[i])
-					}
+					this.pickerData.forEach((item, index) => {
+						this.wheels[index].enable()
+            			this.wheels[index].wheelTo(this.pickerSelectedIndex[index])
+					})
 				}
-				
+				this.$emit(EVENT_SHOW)
 			},
 			hide: function(){
 				this.state = STATE_HIDE;
-				for (let i = 0; i < this.pickerData.length; i++) {
-		          	this.wheels[i].disable()
-		        }
+
+				this.pickerData.forEach((item, index) => {
+					this.wheels[index].disable()
+				})				
 			},
 			cancel: function(){
 				this.hide()
+				this.$emit(EVENT_CANCEL)
+			},
+			confirm: function(){
+				if (!this._canConfirm()) {
+		          	return
+		        }
+		        this.hide()
+		        let changed = false
+		        this.pickerData.forEach((item, index) => {
+		        	let _index = this.wheels[index].getSelectedIndex()
+          			this.pickerSelectedIndex[index] = _index //选择下标
+          			this.pickerSelectedText[index] = this.pickerData[index][_index].text//选中text
+          			this.pickerSelectedVal[index] = this.pickerData[index][_index].value//选中vlue
+          			this.pickerSelectedItem[index] = this.pickerData[index][_index]//选中完整对象
+
+		        })		
+
+		        this.$emit(EVENT_SELECT, this.pickerSelectedVal, this.pickerSelectedIndex, this.pickerSelectedText, this.pickerSelectedItem)
+
 			},
 			_createWheel: function(wheelWrapper, i){
 				if (!this.wheels[i]) {
 
 		          	this.wheels[i] = new BScroll(wheelWrapper.children[i], {
 			            wheel: {
-			              selectedIndex: 0
+			              	selectedIndex: this.pickerSelectedIndex[i]
 			            },
 			            probeType: 3
 			        })
 
+		          	//滑动结束派发一个event_change	
 		          	this.wheels[i].on('scrollEnd', () => {
-		           		//this.$emit(EVENT_CHANGE, i, this.wheels[i].getSelectedIndex())
+		           		this.$emit(EVENT_CHANGE, i, this.wheels[i].getSelectedIndex())
 		          	})
 		        } else {
 		          	this.wheels[i].refresh()
 		        }
-		        
+
 		        return this.wheels[i]
 			},
 			refresh() {
@@ -300,6 +326,14 @@
 		          	})
 		        }, 200)
 		    },
+		    _canConfirm() {
+		        return this.wheels.every((wheel) => {
+		    	    return !wheel.isInTransition
+		        })
+		    },
+		    setSelectedIndex(index) {
+		        this.pickerSelectedIndex = index
+		    }
 		}
 	}
 </script>

@@ -17,7 +17,7 @@
     <div id="app">
     	<div>
 	    	<div @click="show">{{msg}}</div>
-	    	<vue-picker ref="picker" :data="data1"></vue-picker>	
+	    	<vue-picker ref="picker" :selected-index="selectedIndex" :data="data1" @select="select" @show="showEven" @cancel="cancle" @change="change" ></vue-picker>	
     	</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -270,7 +270,7 @@ let data1 = [[
         data: function(){
         	return {
         		msg: 'Hello VUE~',
-                selectedIndex: [0]
+            selectedIndex: [3,0,0,0]
         	}
         },
         mounted: function(){
@@ -279,6 +279,18 @@ let data1 = [[
         methods: {
             show: function(){
                 this.$refs['picker'].show();
+            },
+            select: function(){
+              console.log('select',arguments)
+            },
+            showEven: function(){
+              console.log('show')
+            },
+            cancle: function(){
+              console.log('hide')
+            },
+            change: function(){
+              console.log('eventchange', arguments)
             }
         }
     })

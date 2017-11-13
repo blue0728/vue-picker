@@ -194,7 +194,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "\n.border-bottom-1px[data-v-41037e3b], .border-top-1px[data-v-41037e3b] {\r\n    position: relative;\n}\n.border-bottom-1px[data-v-41037e3b]:after, .border-bottom-1px[data-v-41037e3b]:before, .border-top-1px[data-v-41037e3b]:after, .border-top-1px[data-v-41037e3b]:before {\r\n    position: absolute;\r\n    display: block;\r\n    content: '';\r\n    -webkit-transform-origin: 0 0;\r\n            transform-origin: 0 0;\n}\n.border-top-1px[data-v-41037e3b]:before {\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n\t-webkit-transform-origin: 0 top;\r\n\t        transform-origin: 0 top;;\r\n    border-top: 1px solid #ebebeb;\n}\n.border-bottom-1px[data-v-41037e3b]:after {\r\n    bottom: 0;\r\n    left: 0;\r\n    width: 100%;\r\n\t-webkit-transform-origin: 0 bottom;\r\n\t        transform-origin: 0 bottom;;\r\n\tborder-bottom: 1px solid #ebebeb;\n}\n@media (-webkit-min-device-pixel-ratio:2), (min-device-pixel-ratio:2) {\n.border-top-1px[data-v-41037e3b]:before {\r\n        width: 200%;\r\n        -webkit-transform: scale(.5) translateZ(0);\r\n                transform: scale(.5) translateZ(0);\n}\n.border-bottom-1px[data-v-41037e3b]:after {\r\n        width: 200%;\r\n        -webkit-transform: scale(.5) translateZ(0);\r\n                transform: scale(.5) translateZ(0);\n}\n}\n@media (-webkit-min-device-pixel-ratio:3), (min-device-pixel-ratio:3) {\n.border-top-1px[data-v-41037e3b]:before {\r\n        width: 300%;\r\n        -webkit-transform: scale(.333) translateZ(0);\r\n                transform: scale(.333) translateZ(0);\n}\n.border-bottom-1px[data-v-41037e3b]:after {\r\n        width: 300%;\r\n        -webkit-transform: scale(.333) translateZ(0);\r\n                transform: scale(.333) translateZ(0);\n}\n}\n.picker-fade-enter[data-v-41037e3b], .picker-fade-leave-active[data-v-41037e3b]{\r\n    opacity: 0\n}\n.picker-fade-enter-active[data-v-41037e3b], .picker-fade-leave-active[data-v-41037e3b]{\r\n  \ttransition: all .3s ease-in-out\n}\n.picker-move-enter[data-v-41037e3b], .picker-move-leave-active[data-v-41037e3b]{\r\n    -webkit-transform: translate3d(0, 273px, 0);\r\n            transform: translate3d(0, 273px, 0)\n}\n.picker-move-enter-active[data-v-41037e3b], .picker-move-leave-active[data-v-41037e3b]{\r\n    transition: all .3s ease-in-out\n}\n.picker[data-v-41037e3b] {\r\n\tbackground: rgba(37,38,45,.4);\r\n\tposition: fixed;\r\n\ttop: 0;\r\n\tbottom: 0;\r\n\tleft: 0;\r\n\tright: 0;\r\n\t-webkit-user-select: none;\r\n\t   -moz-user-select: none;\r\n\t    -ms-user-select: none;\r\n\t        user-select: none;\n}\n.picker--panel[data-v-41037e3b] {\r\n\t\tposition: absolute;\r\n\t\tz-index: 600;\r\n\t\tbottom: 0;\r\n\t\twidth: 100%;\r\n\t\theight: 273px;\r\n\t\tbackground: #fff;\n}\n.picker--choose[data-v-41037e3b] {\r\n\t\tdisplay: -webkit-box;\r\n\t\tdisplay: -ms-flexbox;\r\n\t\tdisplay: flex;\r\n\t\t-webkit-box-pack: justify;\r\n\t\t    -ms-flex-pack: justify;\r\n\t\t        justify-content: space-between;\r\n\t\t-webkit-box-align: center;\r\n\t\t    -ms-flex-align: center;\r\n\t\t        align-items: center;\r\n\t\t-ms-flex-line-pack: center;\r\n\t\t    align-content: center;\r\n\t\theight: 60px;\n}\n.picker--choose label[data-v-41037e3b]{\r\n    font-size: 14px;\r\n    padding: 0 20px;\r\n    color: #999;\n}\n.picker--choose .confirm[data-v-41037e3b]{\r\n    color: #007bff;\n}\n.picker--choose h4[data-v-41037e3b]{\r\n    font-size: 18px;\r\n    color: #333;\r\n    font-weight: 400;\n}\n.picker--content[data-v-41037e3b] {\r\n\t\tposition: relative;\r\n\t\ttop: 20px;\n}\n.mask[data-v-41037e3b] {\r\n\tposition: absolute;\r\n\tz-index: 10;\r\n    width: 100%;\r\n    height: 68px;\r\n    pointer-events: none;\r\n    -webkit-transform: translateZ(0);\r\n            transform: translateZ(0);\n}\n.mask--top[data-v-41037e3b] {\r\n\t\ttop: 0;\r\n    \tbackground: linear-gradient(180deg, rgba(255,255,255,.4), rgba(255,255,255,.8));\n}\n.mask--bottom[data-v-41037e3b] {\r\n    \tbottom: 0;\r\n    \tbackground: linear-gradient(0deg, rgba(255,255,255,.4), rgba(255,255,255,.8));\n}\n.wheel[data-v-41037e3b] {\r\n\t-webkit-box-flex: 1;\r\n\t    -ms-flex: 1;\r\n\t        flex: 1;\r\n\ttext-align: center;\r\n    height: 173px;\r\n    overflow: hidden;\r\n    font-size: 20px;\n}\n.wheel ul[data-v-41037e3b] {\r\n    padding: 0;\r\n    margin-top: 68px;\r\n    line-height: 36px;\r\n    list-style: none;\r\n    width: 100%;\n}\n.wheel ul li[data-v-41037e3b]{\r\n    list-style: none;\r\n    height: 36px;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    color: #333;\n}\n.wheel--wrapper[data-v-41037e3b] {\r\n\t\tdisplay: -webkit-box;\r\n\t\tdisplay: -ms-flexbox;\r\n\t\tdisplay: flex;\r\n    \tpadding: 0 16px;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.border-bottom-1px[data-v-41037e3b], .border-top-1px[data-v-41037e3b] {\r\n    position: relative;\n}\n.border-bottom-1px[data-v-41037e3b]:after, .border-bottom-1px[data-v-41037e3b]:before, .border-top-1px[data-v-41037e3b]:after, .border-top-1px[data-v-41037e3b]:before {\r\n    position: absolute;\r\n    display: block;\r\n    content: '';\r\n    -webkit-transform-origin: 0 0;\r\n            transform-origin: 0 0;\n}\n.border-top-1px[data-v-41037e3b]:before {\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n\t-webkit-transform-origin: 0 top;\r\n\t        transform-origin: 0 top;;\r\n    border-top: 1px solid #ebebeb;\n}\n.border-bottom-1px[data-v-41037e3b]:after {\r\n    bottom: 0;\r\n    left: 0;\r\n    width: 100%;\r\n\t-webkit-transform-origin: 0 bottom;\r\n\t        transform-origin: 0 bottom;;\r\n\tborder-bottom: 1px solid #ebebeb;\n}\n@media (-webkit-min-device-pixel-ratio:2), (min-device-pixel-ratio:2) {\n.border-top-1px[data-v-41037e3b]:before {\r\n        width: 200%;\r\n        -webkit-transform: scale(.5) translateZ(0);\r\n                transform: scale(.5) translateZ(0);\n}\n.border-bottom-1px[data-v-41037e3b]:after {\r\n        width: 200%;\r\n        -webkit-transform: scale(.5) translateZ(0);\r\n                transform: scale(.5) translateZ(0);\n}\n}\n@media (-webkit-min-device-pixel-ratio:3), (min-device-pixel-ratio:3) {\n.border-top-1px[data-v-41037e3b]:before {\r\n        width: 300%;\r\n        -webkit-transform: scale(.333) translateZ(0);\r\n                transform: scale(.333) translateZ(0);\n}\n.border-bottom-1px[data-v-41037e3b]:after {\r\n        width: 300%;\r\n        -webkit-transform: scale(.333) translateZ(0);\r\n                transform: scale(.333) translateZ(0);\n}\n}\n.picker-fade-enter[data-v-41037e3b], .picker-fade-leave-active[data-v-41037e3b]{\r\n    opacity: 0\n}\n.picker-fade-enter-active[data-v-41037e3b], .picker-fade-leave-active[data-v-41037e3b]{\r\n  \ttransition: all .3s ease-in-out\n}\n.picker-move-enter[data-v-41037e3b], .picker-move-leave-active[data-v-41037e3b]{\r\n    -webkit-transform: translate3d(0, 273px, 0);\r\n            transform: translate3d(0, 273px, 0)\n}\n.picker-move-enter-active[data-v-41037e3b], .picker-move-leave-active[data-v-41037e3b]{\r\n    transition: all .3s ease-in-out\n}\n.picker[data-v-41037e3b] {\r\n\tbackground: rgba(37,38,45,.4);\r\n\tposition: fixed;\r\n\ttop: 0;\r\n\tbottom: 0;\r\n\tleft: 0;\r\n\tright: 0;\r\n\t-webkit-user-select: none;\r\n\t   -moz-user-select: none;\r\n\t    -ms-user-select: none;\r\n\t        user-select: none;\n}\n.picker--panel[data-v-41037e3b] {\r\n\t\tposition: absolute;\r\n\t\tz-index: 600;\r\n\t\tbottom: 0;\r\n\t\twidth: 100%;\r\n\t\theight: 273px;\r\n\t\tbackground: #fff;\n}\n.picker--choose[data-v-41037e3b] {\r\n\t\tdisplay: -webkit-box;\r\n\t\tdisplay: -ms-flexbox;\r\n\t\tdisplay: flex;\r\n\t\t-webkit-box-pack: justify;\r\n\t\t    -ms-flex-pack: justify;\r\n\t\t        justify-content: space-between;\r\n\t\t-webkit-box-align: center;\r\n\t\t    -ms-flex-align: center;\r\n\t\t        align-items: center;\r\n\t\t-ms-flex-line-pack: center;\r\n\t\t    align-content: center;\r\n\t\theight: 60px;\n}\n.picker--choose label[data-v-41037e3b]{\r\n    font-size: 14px;\r\n    padding: 0 20px;\r\n    color: #999;\n}\n.picker--choose .confirm[data-v-41037e3b]{\r\n    color: #007bff;\n}\n.picker--choose h4[data-v-41037e3b]{\r\n    font-size: 18px;\r\n    color: #333;\r\n    font-weight: 400;\n}\n.picker--content[data-v-41037e3b] {\r\n\t\tposition: relative;\r\n\t\ttop: 20px;\n}\n.mask[data-v-41037e3b] {\r\n\tposition: absolute;\r\n\tz-index: 10;\r\n    width: 100%;\r\n    height: 68px;\r\n    pointer-events: none;\r\n    -webkit-transform: translateZ(0);\r\n            transform: translateZ(0);\n}\n.mask--top[data-v-41037e3b] {\r\n\t\ttop: 0;\r\n    \tbackground: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.5));\n}\n.mask--bottom[data-v-41037e3b] {\r\n    \tbottom: 0;\r\n    \tbackground: linear-gradient(0deg, rgba(255,255,255,.9), rgba(255,255,255,.5));\n}\n.wheel[data-v-41037e3b] {\r\n\t-webkit-box-flex: 1;\r\n\t    -ms-flex: 1;\r\n\t        flex: 1;\r\n\ttext-align: center;\r\n    height: 173px;\r\n    overflow: hidden;\r\n    font-size: 20px;\n}\n.wheel ul[data-v-41037e3b] {\r\n    padding: 0;\r\n    margin-top: 68px;\r\n    line-height: 36px;\r\n    list-style: none;\r\n    width: 100%;\n}\n.wheel ul li[data-v-41037e3b]{\r\n    list-style: none;\r\n    height: 36px;\r\n    overflow: hidden;\r\n    white-space: nowrap;\r\n    color: #333;\n}\n.wheel--wrapper[data-v-41037e3b] {\r\n\t\tdisplay: -webkit-box;\r\n\t\tdisplay: -ms-flexbox;\r\n\t\tdisplay: flex;\r\n    \tpadding: 0 16px;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -852,6 +852,10 @@ var STATE_HIDE = 0; //
 var STATE_SHOW = 1;
 
 var COMPONENT_NAME = 'vue-picker';
+var EVENT_SELECT = 'select';
+var EVENT_CANCEL = 'cancel';
+var EVENT_SHOW = 'show';
+var EVENT_CHANGE = 'change';
 
 exports.default = {
 	name: COMPONENT_NAME,
@@ -887,7 +891,8 @@ exports.default = {
 			pickerData: this.data.slice(),
 			pickerSelectedIndex: this.selectedIndex,
 			pickerSelectedVal: [],
-			pickerSelectedText: []
+			pickerSelectedText: [],
+			pickerSelectedItem: []
 		};
 	},
 	mounted: function mounted() {
@@ -896,9 +901,9 @@ exports.default = {
 		this.$nextTick(function () {
 			if (!_this.pickerSelectedIndex.length) {
 				_this.pickerSelectedIndex = [];
-				for (var i = 0; i < _this.pickerData.length; i++) {
-					_this.pickerSelectedIndex[i] = 0;
-				}
+				_this.pickerData.forEach(function (item, index) {
+					_this.pickerSelectedIndex[index] = 0;
+				});
 			}
 		});
 	},
@@ -916,38 +921,64 @@ exports.default = {
 				this.$nextTick(function () {
 					_this2.wheels = [];
 					var wheelWrapper = _this2.$refs.wheelWrapper;
-					for (var i = 0; i < _this2.pickerData.length; i++) {
-						_this2._createWheel(wheelWrapper, i);
-					}
+					_this2.pickerData.forEach(function (item, index) {
+						_this2._createWheel(wheelWrapper, index);
+					});
 				});
 			} else {
-				for (var i = 0; i < this.pickerData.length; i++) {
-					this.wheels[i].enable();
-					this.wheels[i].wheelTo(this.pickerSelectedIndex[i]);
-				}
+				this.pickerData.forEach(function (item, index) {
+					_this2.wheels[index].enable();
+					_this2.wheels[index].wheelTo(_this2.pickerSelectedIndex[index]);
+				});
 			}
+			this.$emit(EVENT_SHOW);
 		},
 		hide: function hide() {
+			var _this3 = this;
+
 			this.state = STATE_HIDE;
-			for (var i = 0; i < this.pickerData.length; i++) {
-				this.wheels[i].disable();
-			}
+
+			this.pickerData.forEach(function (item, index) {
+				_this3.wheels[index].disable();
+			});
 		},
 		cancel: function cancel() {
 			this.hide();
+			this.$emit(EVENT_CANCEL);
+		},
+		confirm: function confirm() {
+			var _this4 = this;
+
+			if (!this._canConfirm()) {
+				return;
+			}
+			this.hide();
+			var changed = false;
+			this.pickerData.forEach(function (item, index) {
+				var _index = _this4.wheels[index].getSelectedIndex();
+				_this4.pickerSelectedIndex[index] = _index; //选择下标
+				_this4.pickerSelectedText[index] = _this4.pickerData[index][_index].text; //选中text
+				_this4.pickerSelectedVal[index] = _this4.pickerData[index][_index].value; //选中vlue
+				_this4.pickerSelectedItem[index] = _this4.pickerData[index][_index]; //选中完整对象
+			});
+
+			this.$emit(EVENT_SELECT, this.pickerSelectedVal, this.pickerSelectedIndex, this.pickerSelectedText, this.pickerSelectedItem);
 		},
 		_createWheel: function _createWheel(wheelWrapper, i) {
+			var _this5 = this;
+
 			if (!this.wheels[i]) {
 
 				this.wheels[i] = new _betterScroll2.default(wheelWrapper.children[i], {
 					wheel: {
-						selectedIndex: 0
+						selectedIndex: this.pickerSelectedIndex[i]
 					},
 					probeType: 3
 				});
 
+				//滑动结束派发一个event_change	
 				this.wheels[i].on('scrollEnd', function () {
-					//this.$emit(EVENT_CHANGE, i, this.wheels[i].getSelectedIndex())
+					_this5.$emit(EVENT_CHANGE, i, _this5.wheels[i].getSelectedIndex());
 				});
 			} else {
 				this.wheels[i].refresh();
@@ -956,13 +987,21 @@ exports.default = {
 			return this.wheels[i];
 		},
 		refresh: function refresh() {
-			var _this3 = this;
+			var _this6 = this;
 
 			setTimeout(function () {
-				_this3.wheels.forEach(function (wheel, index) {
+				_this6.wheels.forEach(function (wheel, index) {
 					wheel.refresh();
 				});
 			}, 200);
+		},
+		_canConfirm: function _canConfirm() {
+			return this.wheels.every(function (wheel) {
+				return !wheel.isInTransition;
+			});
+		},
+		setSelectedIndex: function setSelectedIndex(index) {
+			this.pickerSelectedIndex = index;
 		}
 	}
 };
@@ -2918,9 +2957,11 @@ var render = function() {
                 _vm._v(" "),
                 _c("h4", [_vm._v(_vm._s(_vm.title))]),
                 _vm._v(" "),
-                _c("label", { staticClass: "confirm" }, [
-                  _vm._v(_vm._s(_vm.confirmTxt))
-                ])
+                _c(
+                  "label",
+                  { staticClass: "confirm", on: { click: _vm.confirm } },
+                  [_vm._v(_vm._s(_vm.confirmTxt))]
+                )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "picker--content" }, [
