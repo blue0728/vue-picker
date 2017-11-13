@@ -326,6 +326,11 @@
 		          	})
 		        }, 200)
 		    },
+		    scrollTo(index, dist) {
+		        const wheel = this.wheels[index]
+		        this.pickerSelectedIndex[index] = dist
+		        wheel.wheelTo(dist)
+		    },
 		    _canConfirm() {
 		        return this.wheels.every((wheel) => {
 		    	    return !wheel.isInTransition
@@ -333,7 +338,15 @@
 		    },
 		    setSelectedIndex(index) {
 		        this.pickerSelectedIndex = index
+		    },
+		    setData(data) {
+		        this.pickerData = data.slice()
 		    }
-		}
+		},
+		watch: {
+		    data: function(newData) {
+		        this.setData(newData)
+		    }
+	    }
 	}
 </script>

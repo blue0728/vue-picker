@@ -995,6 +995,11 @@ exports.default = {
 				});
 			}, 200);
 		},
+		scrollTo: function scrollTo(index, dist) {
+			var wheel = this.wheels[index];
+			this.pickerSelectedIndex[index] = dist;
+			wheel.wheelTo(dist);
+		},
 		_canConfirm: function _canConfirm() {
 			return this.wheels.every(function (wheel) {
 				return !wheel.isInTransition;
@@ -1002,6 +1007,14 @@ exports.default = {
 		},
 		setSelectedIndex: function setSelectedIndex(index) {
 			this.pickerSelectedIndex = index;
+		},
+		setData: function setData(data) {
+			this.pickerData = data.slice();
+		}
+	},
+	watch: {
+		data: function data(newData) {
+			this.setData(newData);
 		}
 	}
 };
