@@ -9,7 +9,6 @@ npm install vue-picker --save
 
 `vue-picker` 使用了 `better-scroll`  [@ustbhuangyi](https://github.com/ustbhuangyi)，非常感谢
 
-
 ## Usage
 
 ```js
@@ -49,4 +48,6 @@ var app = new Vue({
 })
 ```
 
+## demo
 
+`/demo/index.html`

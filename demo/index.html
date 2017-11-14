@@ -30,7 +30,7 @@
     	<div>
         <div class="btn" @click="show">点击</div>
         <div>{{text}}</div>
-	    	<vue-picker ref="picker" :selected-index="selectedIndex" :data="data" @select="select"></vue-picker>
+	    	<vue-picker ref="picker" :title="title" :cancel-txt="cancelTxt" :confirm-txt="confirmTxt" :selected-index="selectedIndex"  :data="data" @select="select"></vue-picker>
     	</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -106,7 +106,10 @@ let data = [[
         data: function(){
         	return {
             selectedIndex: [3],
-            text: []
+            text: [],
+            title: '来吧',
+            cancelTxt: '不要',
+            confirmTxt:'好的'
         	}
         },
         methods: {
