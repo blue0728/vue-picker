@@ -1,13 +1,13 @@
 
 ## Install
 ```
-npm install vue-picker --save
+npm install vue-bspicker --save
 
 ```
 
 ## Info
 
-`vue-picker` 使用了 `better-scroll`  [@ustbhuangyi](https://github.com/ustbhuangyi)，非常感谢
+`vue-bspicker` 使用了 `better-scroll`  [@ustbhuangyi](https://github.com/ustbhuangyi)，非常感谢
 
 ## Usage
 
@@ -16,7 +16,7 @@ npm install vue-picker --save
     <button @click="show">点击</button>
     <vue-picker ref="picker" :data="data" @select="select"></vue-picker>
 
-import vuePicker from 'vue-picker'
+import vuePicker from 'vue-bspicker'
 
 var app = new Vue({
   el: '#app',

@@ -1,6 +1,6 @@
 {
 	"name": "vue-bspicker",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "vue-picker component for vue.",
 	"main": "dist/vue-picker.js",
 	"scripts": {

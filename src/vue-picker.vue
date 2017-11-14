@@ -290,9 +290,9 @@
 		        this.pickerData.forEach((item, index) => {
 		        	let _index = this.wheels[index].getSelectedIndex()
           			this.pickerSelectedIndex[index] = _index //选择下标
-          			this.pickerSelectedText[index] = this.pickerData[index][_index].text//选中text
-          			this.pickerSelectedVal[index] = this.pickerData[index][_index].value//选中vlue
-          			this.pickerSelectedItem[index] = this.pickerData[index][_index]//选中完整对象
+          			this.pickerSelectedText[index] = this.pickerData[index][_index] ? this.pickerData[index][_index].text : '' //选中text
+          			this.pickerSelectedVal[index] = this.pickerData[index][_index] ? this.pickerData[index][_index].value : '' //选中vlue
+          			this.pickerSelectedItem[index] = this.pickerData[index][_index] ? this.pickerData[index][_index] : null   //选中完整对象
 
 		        })		
 
