@@ -21,10 +21,6 @@ module.exports = {
 			test: /\.vue$/,
 			loader: 'vue-loader',
 			options: {
-				loaders: {
-					//css: ExtractTextPlugin.extract('css-loader'),
-
-				},
 				postcss: function() {
 					return [require('postcss-salad')({
 						features: {

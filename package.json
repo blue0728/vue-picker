@@ -1,6 +1,6 @@
 {
 	"name": "vue-bspicker",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "vue-picker component for vue.",
 	"main": "dist/vue-picker.js",
 	"scripts": {
@@ -21,7 +21,7 @@
 		"url": "https://github.com/blue0728/vue-picker/issues"
 	},
 	"license": "ISC",
-	"dependencies": {
+	"devDependencies": {
 		"babel-core": "^6.26.0",
 		"babel-loader": "^7.1.2",
 		"babel-preset-es2015": "^6.24.1",
