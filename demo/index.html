@@ -13,195 +13,31 @@
         margin: 0;
         padding: 0;
     }
+    body,html{
+      background: #f7f7f7;
+    }
+    .btn{
+      margin: 30px 100px;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid #e5e5e5;
+      text-align: center;
+      background: #fff;
+      color: #606c71;
+    }
     </style>
     <div id="app">
     	<div>
-	    	<div @click="show">{{msg}}</div>
-	    	<vue-picker ref="picker" :selected-index="selectedIndex" :data="data1" @select="select"></vue-picker>	
+        <div class="btn" @click="show">点击</div>
+        <div>{{text}}</div>
+	    	<vue-picker ref="picker" :selected-index="selectedIndex" :data="data" @select="select"></vue-picker>
     	</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="../dist/vue-picker.js"></script>
     <script>
 
-let data1 = [[
-    {
-      text: '剧毒',
-      value: 1
-    }, {
-      text: '蚂蚁',
-      value: 2
-    },
-    {
-      text: '幽鬼',
-      value: 3
-    },
-    {
-      text: '主宰',
-      value: 4
-    },
-    {
-      text: '卡尔',
-      value: 5
-    },
-    {
-      text: '宙斯',
-      value: 6
-    },
-    {
-      text: '巫医',
-      value: 7
-    }, {
-      text: '巫妖',
-      value: 8
-    },
-    {
-      text: '神谕者',
-      value: 9
-    },
-    {
-      text: '撼地神牛',
-      value: 10
-    },
-    {
-      text: '蓝胖子',
-      value: 11
-    },
-    {
-      text: '水晶室女',
-      value: 12
-    },
-    {
-      text: '莉娜',
-      value: 13
-    },
-    {
-      text: '斯拉克',
-      value: 14
-    },
-    {
-      text: '斯拉达',
-      value: 15
-    }
-  ],[
-    {
-      text: '剧毒',
-      value: 1
-    }, {
-      text: '蚂蚁',
-      value: 2
-    },
-    {
-      text: '幽鬼',
-      value: 3
-    },
-    {
-      text: '主宰',
-      value: 4
-    },
-    {
-      text: '卡尔',
-      value: 5
-    },
-    {
-      text: '宙斯',
-      value: 6
-    },
-    {
-      text: '巫医',
-      value: 7
-    }, {
-      text: '巫妖',
-      value: 8
-    },
-    {
-      text: '神谕者',
-      value: 9
-    },
-    {
-      text: '撼地神牛',
-      value: 10
-    },
-    {
-      text: '蓝胖子',
-      value: 11
-    },
-    {
-      text: '水晶室女',
-      value: 12
-    },
-    {
-      text: '莉娜',
-      value: 13
-    },
-    {
-      text: '斯拉克',
-      value: 14
-    },
-    {
-      text: '斯拉达',
-      value: 15
-    }
-  ],[
-    {
-      text: '剧毒',
-      value: 1
-    }, {
-      text: '蚂蚁',
-      value: 2
-    },
-    {
-      text: '幽鬼',
-      value: 3
-    },
-    {
-      text: '主宰',
-      value: 4
-    },
-    {
-      text: '卡尔',
-      value: 5
-    },
-    {
-      text: '宙斯',
-      value: 6
-    },
-    {
-      text: '巫医',
-      value: 7
-    }, {
-      text: '巫妖',
-      value: 8
-    },
-    {
-      text: '神谕者',
-      value: 9
-    },
-    {
-      text: '撼地神牛',
-      value: 10
-    },
-    {
-      text: '蓝胖子',
-      value: 11
-    },
-    {
-      text: '水晶室女',
-      value: 12
-    },
-    {
-      text: '莉娜',
-      value: 13
-    },
-    {
-      text: '斯拉克',
-      value: 14
-    },
-    {
-      text: '斯拉达',
-      value: 15
-    }
-  ],[
+let data = [[
     {
       text: '剧毒',
       value: 1
@@ -269,8 +105,8 @@ let data1 = [[
         },
         data: function(){
         	return {
-        		msg: 'Hello VUE~',
-            selectedIndex: [3,0,0,0]
+            selectedIndex: [3],
+            text: []
         	}
         },
         methods: {
@@ -278,6 +114,7 @@ let data1 = [[
                 this.$refs['picker'].show();
             },
             select: function(){
+              this.text = arguments
               console.log('select',arguments)
             }
         }
